@@ -25,6 +25,7 @@ $xs: 450px;
 
         @media screen and (max-width: 1120px) {
             justify-content: center;
+            height: 40dvh;
         }
     }
 
@@ -72,10 +73,6 @@ $xs: 450px;
             font-size: 100%;
         }
 
-        @media screen and (max-width: 1120px) {
-            height: 40dvh;
-            width: auto;
-        }
     }
 
     @mixin button-styles($x-translation) {
@@ -90,6 +87,10 @@ $xs: 450px;
     .next {
         @include button-styles(40%);
 
+        @media screen and (max-width: 1120px) {
+            transform: translateY(-50%) translateX(300%);
+        }
+
         @media screen and (max-width: $mobile-width) {
             left: 100%;
             transform: translateY(-50%) translateX(-60%);
@@ -99,9 +100,14 @@ $xs: 450px;
     .prev {
         @include button-styles(-530%);
 
+        @media screen and (max-width: 1120px) {
+            transform: translateY(-50%) translateX(-285%);
+        }
+
         @media screen and (max-width: $mobile-width) {
             left: 0%;
             transform: translateY(-50%) translateX(-40%);
         }
+
     }
 }
