@@ -1,0 +1,18 @@
+.carousel {
+    position: relative;
+    grid-row: 1 / -1;
+    grid-column: 2;
+    z-index: 100;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 2rem;
+
+    @media screen and (max-width: 1120px) {
+        justify-content: center;
+    }
+
+    @media screen and (max-width: 770px) {
+        margin-top: 0;
+    }
+}

@@ -1,0 +1,28 @@
+.card {
+    aspect-ratio: 450 / 547.5;
+    height: 90%;
+    position: relative;
+
+    .cardBody {
+        position: absolute;
+        top: 0;
+        backdrop-filter: blur(15px);
+        background-color: rgba(255, 255, 255, 0.245);
+        width: 100%;
+        height: 100%;
+        clip-path: url(#card-body-mask);
+    }
+
+    .photo {
+        position: absolute;
+        height: calc(390 / 547.5 * 100%);
+        top: calc(12.5 / 547.5 * 100%);
+        left: calc(12.5 / 450 * 100%);
+        width: auto;
+    }
+
+    @media screen and (max-width: 1120px) {
+        height: 40dvh;
+        width: auto;
+    }
+}
