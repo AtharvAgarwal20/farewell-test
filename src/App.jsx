@@ -162,6 +162,11 @@ function App() {
             photo={seniorsImageArray[seniorIndex]}
             name={namesArray[seniorIndex]}
             team={teamArray[seniorIndex]}
+            btnLeft={btnPrev}
+            btnRight={btnNext}
+            onNext={carouselNext}
+            onPrev={carouselPrev}
+            ref={cardRef}
           />
         </section>
         <footer>Made with ❤️ by DVM</footer>

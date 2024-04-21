@@ -1,7 +1,22 @@
 .card {
     aspect-ratio: 450 / 547.5;
-    height: 90%;
+    height: 100%;
     position: relative;
+
+    @mixin card-positioning($dist-top, $dist-left) {
+        position: absolute;
+        top: calc($dist-top / 547.5 * 100%);
+        left: calc($dist-left / 450 * 100%);
+    }
+
+    @mixin button-styles($x-translation) {
+        cursor: pointer;
+        position: absolute;
+        top: 39%;
+        transform: translateY(-50%) translateX($x-translation);
+        width: auto;
+        height: 13.6%;
+    }
 
     .cardBody {
         position: absolute;
@@ -14,11 +29,34 @@
     }
 
     .photo {
-        position: absolute;
+        @include card-positioning(12.5, 12.5);
         height: calc(390 / 547.5 * 100%);
-        top: calc(12.5 / 547.5 * 100%);
-        left: calc(12.5 / 450 * 100%);
         width: auto;
+    }
+
+    .name {
+        @include card-positioning(418.5, 0);
+        width: 100%;
+        text-align: center;
+        font-weight: 700;
+        font-size: 150%;
+        text-shadow: -2px 2px 4px #00000052;
+    }
+
+    .team {
+        @include card-positioning(482.5, 0);
+        width: 100%;
+        text-align: center;
+        font-weight: 500;
+        font-size: 100%;
+    }
+
+    .next {
+        @include button-styles(-20%);
+    }
+
+    .prev {
+        @include button-styles(-600%);
     }
 
     @media screen and (max-width: 1120px) {
