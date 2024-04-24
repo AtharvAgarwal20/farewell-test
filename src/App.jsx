@@ -13,25 +13,25 @@ import shadowCentre from './assets/shadowCentre.png'
 import btnNext from './assets/btnNext.png'
 import btnPrev from './assets/btnPrev.png'
 import Card1 from './assets/Card1.png'
-import Photo1 from './assets/pic.png'
+import Card2 from './assets/Card2.png'
+import person from './assets/name+img.png'
 
 import Loader from './components/Loader/Loader'
-import Carousel from './components/Carousel/Carousel'
+import Card from './components/Card/Card'
+import ShootingStars from './components/ShootingStars/ShootingStars'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
   const [seniorIndex, setSeniorIndex] = useState(0)
 
-  const seniorsImageArray = [Photo1, Photo1, Photo1]
+  const seniorsImageArray = [person, person, person]
   const seniorsDescriptionArray = ["desc 1", "desc 2", "desc 3"]
-  const namesArray = ["Peter Parker", "John Wick", "Patrick Bateman"]
-  const teamArray = ["Frontend", "Backend", "Design"]
 
   const cardRef = useRef();
   const descRef = useRef();
 
   useEffect(() => {
-    const assets = [moon, dvmLogo, bitsPilani, stars, gridLeft, gridRight, Card1, btnNext, btnPrev, Photo1]
+    const assets = [moon, dvmLogo, bitsPilani, stars, gridLeft, gridRight, Card1, Card2, person, btnNext, btnPrev]
 
     const loadAssets = async () => {
       try {
@@ -136,6 +136,7 @@ function App() {
         draggable={false}
         className={styles.stars}
       />
+      <ShootingStars starCount={10} />
       <img
         src={bitsPilani}
         alt="clocktower"
@@ -158,14 +159,12 @@ function App() {
         <section className={styles.content}>
           <h1>Farewell<br />2024</h1>
           <p ref={descRef}>{seniorsDescriptionArray[seniorIndex]}</p>
-          <Carousel
-            photo={seniorsImageArray[seniorIndex]}
-            name={namesArray[seniorIndex]}
-            team={teamArray[seniorIndex]}
-            btnLeft={btnPrev}
-            btnRight={btnNext}
-            onNext={carouselNext}
+          <Card
+            seniorCard={seniorsImageArray[seniorIndex]}
+            nextBtn={btnNext}
+            prevBtn={btnPrev}
             onPrev={carouselPrev}
+            onNext={carouselNext}
             ref={cardRef}
           />
         </section>
